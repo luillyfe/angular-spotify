@@ -5,7 +5,7 @@ import {WindowService} from '../_helpers/window.service';
 export class AngularSpotifyService {
     private clientId:     string = '14d0e6301dea4e29ba4ba48195d3a255';
     private responseType: string = 'token';
-    private redirectUri:  string = 'http://localhost:4200/auth/token'; // shoul be register on
+    private redirectUri:  string = 'http://localhost:4200/auth/token'; // should be register on
 
   constructor(private windowRef: WindowService) { }
 
