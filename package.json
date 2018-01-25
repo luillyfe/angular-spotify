@@ -1,19 +1,16 @@
 {
-  "name": "angular-spotify",
-  "version": "1.5.1",
+  "name": "rc-angular-spotify",
+  "version": "1.0.6",
   "description": "Angular Service to connect to Spotify Web API",
   "main": "src/angular-spotify.js",
   "dependencies": {
     "@angular/common": "^5.2.1",
     "@angular/compiler": "^5.2.1",
     "@angular/core": "^5.2.1",
-    "@angular/http": "^5.2.1",
     "@angular/platform-browser": "^5.2.1",
     "@angular/platform-browser-dynamic": "^5.2.1",
-    "@angular/router": "^5.2.1",
     "bootstrap": "4.0.0-beta.2",
     "core-js": "^2.5.3",
-    "rxjs": "^5.5.6",
     "zone.js": "^0.8.20"
   },
   "devDependencies": {
@@ -33,6 +30,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^1.6.0",
     "protractor": "~5.2.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
@@ -44,8 +42,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "packagr": "ng-packagr -p ng-package.json"
   },
+  "private": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/eddiemoore/angular-spotify.git"
