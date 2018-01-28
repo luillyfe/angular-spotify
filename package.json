@@ -1,6 +1,6 @@
 {
   "name": "angular-spotify-beta",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Angular Service to connect to Spotify Web API",
   "main": "src/angular-spotify.js",
   "dependencies": {
