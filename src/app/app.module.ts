@@ -20,9 +20,10 @@ const appRoutes: Routes = [
   ],
   imports: [
       CommonModule,
-      RouterModule.forRoot(appRoutes, {enableTracing: true})
+      RouterModule.forRoot(appRoutes)
   ],
   providers: [WindowService, AngularSpotifyService],
+  exports: [ RouterModule ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
