@@ -11,4 +11,5 @@ node_modules/
 /test/coverage/
 !.gitignore
 !dist/
+dist/
 npm-debug.log
