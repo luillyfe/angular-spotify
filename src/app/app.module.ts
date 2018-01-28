@@ -1,31 +1,29 @@
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
 import {AngularSpotifyService} from './angular-spotify/angular-spotify.service';
-import {RouterModule, Routes} from '@angular/router';
-import { AngularSpotifyComponent } from './angular-spotify/angular-spotify.component';
 import {TokenComponent} from './_helpers/token.component';
 import {WindowService} from './_helpers/window.service';
+import {RouterModule, Routes} from '@angular/router';
+import {CommonModule} from '@angular/common';
+
 
 const appRoutes: Routes = [
-    { path: '', component: AngularSpotifyComponent },
-    { path: 'auth/token', component:  TokenComponent}
+    { path: 'auth/token', component: TokenComponent }
 ];
 
 @NgModule({
   declarations: [
       AppComponent,
-      AngularSpotifyComponent,
       TokenComponent
   ],
   imports: [
-      RouterModule.forRoot(appRoutes),
-      BrowserModule,
-      HttpClientModule
+      CommonModule,
+      RouterModule.forRoot(appRoutes)
   ],
   providers: [WindowService, AngularSpotifyService],
+  exports: [ RouterModule ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,7 @@ import {WindowService} from './window.service';
 
 @Component({
   selector: 'app-root',
-  template: `<!–– get token from Spotify ––>`
+  template: ''
 })
 export class TokenComponent {
   constructor(private route: ActivatedRoute, private windowRef: WindowService) {
