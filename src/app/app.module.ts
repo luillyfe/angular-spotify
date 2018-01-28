@@ -5,7 +5,13 @@ import { AppComponent } from './app.component';
 import {AngularSpotifyService} from './angular-spotify/angular-spotify.service';
 import {TokenComponent} from './_helpers/token.component';
 import {WindowService} from './_helpers/window.service';
+import {RouterModule, Routes} from '@angular/router';
 import {CommonModule} from '@angular/common';
+
+
+const appRoutes: Routes = [
+    { path: 'auth/token', component: TokenComponent }
+];
 
 @NgModule({
   declarations: [
@@ -13,7 +19,8 @@ import {CommonModule} from '@angular/common';
       TokenComponent
   ],
   imports: [
-      CommonModule
+      CommonModule,
+      RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [WindowService, AngularSpotifyService],
   bootstrap: [AppComponent]
