@@ -2,11 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'spotify-root',
-  template: '',
+  template: '<spotify-outlet></spotify-outlet>',
   styles: ['']
 })
 export class AppComponent {
-  title = 'app';
-
   constructor() { }
 }
