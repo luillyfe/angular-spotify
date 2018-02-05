@@ -3,7 +3,6 @@ import {ActivatedRoute} from '@angular/router';
 import {WindowService} from './window.service';
 
 @Component({
-  selector: 'app-root',
   template: ''
 })
 export class TokenComponent {
