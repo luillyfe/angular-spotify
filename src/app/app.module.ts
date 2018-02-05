@@ -26,4 +26,4 @@ const appRoutes: Routes = [
   exports: [ RouterModule ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class SpotifyModule { }
