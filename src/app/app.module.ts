@@ -2,11 +2,13 @@
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {AngularSpotifyService} from './angular-spotify/angular-spotify.service';
+import {SpotifyService} from './angular-spotify/angular-spotify.service';
 import {TokenComponent} from './_helpers/token.component';
 import {WindowService} from './_helpers/window.service';
 import {RouterModule, Routes} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {SpotifyInterceptorService} from './_helpers/spotify-interceptor.service';
 
 
 const appRoutes: Routes = [
@@ -20,9 +22,14 @@ const appRoutes: Routes = [
   ],
   imports: [
       CommonModule,
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes),
+      HttpClientModule
   ],
-  providers: [WindowService, AngularSpotifyService],
+  providers: [WindowService, SpotifyService, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SpotifyInterceptorService,
+      multi: true
+  }],
   exports: [ RouterModule ],
   bootstrap: [AppComponent]
 })
