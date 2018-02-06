@@ -1,40 +1,31 @@
 import { Injectable } from '@angular/core';
 import {WindowService} from '../_helpers/window.service';
+import {SpotifyConfig} from './spotify-config';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
-export class AngularSpotifyService {
-    private clientId = '14d0e6301dea4e29ba4ba48195d3a255';
-    private responseType = 'token';
-    private redirectUri = 'http://localhost:4200/auth/token'; // should be register on
+export class SpotifyService {
 
-    private name = 'Spotify Auth';
+    private apiBase = 'https://api.spotify.com/v1';
+    private config = new SpotifyConfig();
 
-    private witdh: number = 400;
-    private heigh: number = 500;
-    private left:  number = (screen.width / 2) - (this.witdh / 2);
-    private top:   number = (screen.height / 2) - (this.heigh / 2);
+    constructor(private windowRef: WindowService,
+                private http: HttpClient) {
+        this.getToken();
+    }
 
-    constructor(private windowRef: WindowService) { }
+    getAlbum() {
+      const album = '0sNOF9WDwhWunNAHPD3Baj';
+      return this.api('/albums/' + album, 'GET', null, null)
+          .subscribe(data => console.log(data), res => console.log(res));
+    }
 
-    getToken(windowName = this.name, windowOptions = this.getOptions()) {
-        this.windowRef.nativeWindow.open(`https://accounts.spotify.com/authorize?${this.toQueryString()}`,
+    private getToken(windowName = this.config.name, windowOptions = this.config.getOptions()) {
+        this.windowRef.nativeWindow.open(`https://accounts.spotify.com/authorize?${this.config.toQueryString()}`,
           windowName, windowOptions);
     }
 
-    private toQueryString(): string {
-        return `client_id=${this.clientId}&response_type=${this.responseType}&redirect_uri=${this.redirectUri}`;
+    private api(endpoint, method, params, data) {
+        return this.http.get(`${this.apiBase}${endpoint}`);
     }
-
-    private getOptions(): string {
-      return `menubar=no,
-              location=no,
-              resizable=yes,
-              scrollbars=yes,
-              status=no,
-              width=${this.witdh},
-              height=${this.heigh},
-              top=${this.top},
-              left=${this.left}`;
-    }
-
 }

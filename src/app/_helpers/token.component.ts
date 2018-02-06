@@ -7,10 +7,10 @@ import {WindowService} from './window.service';
 })
 export class TokenComponent {
   constructor(private route: ActivatedRoute, private windowRef: WindowService) {
+      this.windowRef.nativeWindow.close();
       this.route.fragment
           .subscribe((token: string) => {
               localStorage.setItem('token', token.slice(token.indexOf('=') + 1, token.indexOf('&')));
           });
-      this.windowRef.nativeWindow.close();
   }
 }
