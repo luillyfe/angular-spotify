@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'spotify-root',
-  template: '<spotify-outlet></spotify-outlet>',
+  template: '',
   styles: ['']
 })
 export class AppComponent {

@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -6,8 +6,7 @@ import {AngularSpotifyService} from './angular-spotify/angular-spotify.service';
 import {TokenComponent} from './_helpers/token.component';
 import {WindowService} from './_helpers/window.service';
 import {RouterModule, Routes} from '@angular/router';
-import { AngularSpotifyComponent } from './angular-spotify/angular-spotify.component';
-// import {CommonModule} from '@angular/common';
+import {CommonModule} from '@angular/common';
 
 
 const appRoutes: Routes = [
@@ -17,11 +16,10 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
       AppComponent,
-      TokenComponent,
-      AngularSpotifyComponent
+      TokenComponent
   ],
   imports: [
-      BrowserModule,
+      CommonModule,
       RouterModule.forRoot(appRoutes)
   ],
   providers: [WindowService, AngularSpotifyService],
