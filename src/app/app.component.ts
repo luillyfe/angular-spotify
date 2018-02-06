@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'spotify-root',
-  template: '',
+  template: '<router-outlet></router-outlet>',
   styles: ['']
 })
-export class AppComponent {
-  constructor() { }
-}
+export class AppComponent { }
