@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {WindowService} from '../_helpers/window.service';
 import {SpotifyConfig} from './spotify-config';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class SpotifyService {
@@ -14,10 +15,8 @@ export class SpotifyService {
         this.getToken();
     }
 
-    getAlbum() {
-      const album = '0sNOF9WDwhWunNAHPD3Baj';
-      return this.api('/albums/' + album, 'GET', null, null)
-          .subscribe(data => console.log(data), res => console.log(res));
+    getAlbum(albumId: string, market = 'CO'): Observable<any> {
+      return this.api(`/albums/${albumId}?market=${market}`);
     }
 
     private getToken(windowName = this.config.name, windowOptions = this.config.getOptions()) {
@@ -25,7 +24,7 @@ export class SpotifyService {
           windowName, windowOptions);
     }
 
-    private api(endpoint, method, params, data) {
+    private api(endpoint) {
         return this.http.get(`${this.apiBase}${endpoint}`);
     }
 }
